@@ -17,6 +17,7 @@ public:
     SqlResultados();
     QSqlError iniBD();
     QSqlError closeBD();
+    QSqlQuery busca();
 
 
     //---

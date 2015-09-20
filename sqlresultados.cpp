@@ -24,3 +24,8 @@ QSqlError SqlResultados::iniBD()
 void SqlResultados::closeBD(){
     this->db.close();
 }
+
+QSqlQuery busca(QString comandoSQL){
+        QSqlQuery query(comandoSQL);
+           return query;
+}
