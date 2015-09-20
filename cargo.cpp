@@ -52,11 +52,11 @@ Cargo::admissaoCargo( Cargo carg, funcionario fun){
 
 void criaCargo(Cargo carg){
     QSqlQuery query= new QSqlQuery;
-    query.prepare("INSERT INTO cargo (idCargo, nome, Salario)"
-                  "VALUES (:id, :nome, :salario)"); // aqui estou criando mais um valor na tabela
-
-
-
+    query.prepare("INSERT INTO cargo (nome, Salario)"
+                  "VALUES (:name, :salario)"); // aqui estou criando mais um valor na tabela
+    query.addBindValue(":name",carg.nome);
+    query.addBindValue(":salario");
+    query.exec();
 }
 
 //adicionar caixa bd e sistema
