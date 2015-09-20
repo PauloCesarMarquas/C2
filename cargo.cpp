@@ -1,3 +1,4 @@
+
 #include "funcionario.h"
 #include "cargo.h"
 // include para o bd:
@@ -23,8 +24,7 @@ Cargo::admissaoCargoQuery(QSqlQuery &query, Cargo cargoAdmitido, funcionario fun
 
 }
 
-Cargo::admissaoCargo()
-{
+Cargo::admissaoCargo( Cargo carg; funcionario fun){
 
 }
 //adicionar caixa bd e sistema
