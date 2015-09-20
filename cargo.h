@@ -18,6 +18,7 @@ public:
     QDate admissaoCargo();  //retorna a data da admissao/promoção do funcionario para cargo
     QDate admissaoCargoQuery();
     QDate exonerardoCargo();//retorna a data da exoneração do cargo atual
+    void criaCargo();
 
 
 };

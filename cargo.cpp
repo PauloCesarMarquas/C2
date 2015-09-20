@@ -1,11 +1,18 @@
 
 #include "funcionario.h"
 #include "cargo.h"
+#include "iostream"
+#include "stdlib.h"
 // include para o bd:
 #include <QtSql/QSql>
 #include <QtSql/qsqldatabase.h>
 #include <QtSql/qsql.h>
 #include <QtSql/qsqlquery.h>
+// includes para o bd, codigo do sistema
+#include "sqlresultados.h"
+
+
+using namespace std;
 
 
 Cargo::Cargo()
@@ -21,10 +28,35 @@ Cargo::admissaoCargoQuery(QSqlQuery &query, Cargo cargoAdmitido, funcionario fun
     query.addBindValue(":dataInicio",QDate.currentDate());
     query.addBindValue(":funcionario_CPF",func->cpf);
     query.addBindValue(":idCargoAtual", cargo);
-
+    query.exec();
 }
 
-Cargo::admissaoCargo( Cargo carg; funcionario fun){
+Cargo::admissaoCargo( Cargo carg, funcionario fun){
+    string resultado;
+    SqlResultados sql=new SqlResultados;
+    QSqlQuery query=new QSqlQuery;
+    cout << "Selecionar Funcionario" << endl << "insira o id do funcionario ";
+    cin >> fun.id >> endl;
+    query = sql.busca("select * from Funcionario where id ="+cargo.id);
 
+    resultado.copy(query.value(0).toString());
+    cout << "Funcionario selecionado: " << resultado << endl;
+
+    cout << "Selecionar Cargo" << endl << "insira o id do cargo ";
+    cin >> carg.id >> endl;
+    query = sql.busca("select * from cargo where id ="+cargo.id);
+    resultado.copy(query.value(0).toString());
+    cout << "cargo selecionado: " << resultado << endl;
+    Cargo::admissaoCargoQuery(&query,carg, fun);
 }
+
+void criaCargo(Cargo carg){
+    QSqlQuery query= new QSqlQuery;
+    query.prepare("INSERT INTO cargo (nome, Salario)"
+                  "VALUES (:name, :salario)"); // aqui estou criando mais um valor na tabela
+    query.addBindValue(":name",carg.nome);
+    query.addBindValue(":salario");
+    query.exec();
+}
+
 //adicionar caixa bd e sistema
