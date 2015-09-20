@@ -28,7 +28,7 @@ Cargo::admissaoCargoQuery(QSqlQuery &query, Cargo cargoAdmitido, funcionario fun
     query.addBindValue(":dataInicio",QDate.currentDate());
     query.addBindValue(":funcionario_CPF",func->cpf);
     query.addBindValue(":idCargoAtual", cargo);
-
+    query.exec();
 }
 
 Cargo::admissaoCargo( Cargo carg, funcionario fun){
@@ -38,6 +38,7 @@ Cargo::admissaoCargo( Cargo carg, funcionario fun){
     cout << "Selecionar Funcionario" << endl << "insira o id do funcionario ";
     cin >> fun.id >> endl;
     query = sql.busca("select * from Funcionario where id ="+cargo.id);
+
     resultado.copy(query.value(0).toString());
     cout << "Funcionario selecionado: " << resultado << endl;
 
@@ -46,6 +47,16 @@ Cargo::admissaoCargo( Cargo carg, funcionario fun){
     query = sql.busca("select * from cargo where id ="+cargo.id);
     resultado.copy(query.value(0).toString());
     cout << "cargo selecionado: " << resultado << endl;
+    Cargo::admissaoCargoQuery(&query,carg, fun);
+}
+
+void criaCargo(Cargo carg){
+    QSqlQuery query= new QSqlQuery;
+    query.prepare("INSERT INTO cargo (idCargo, nome, Salario)"
+                  "VALUES (:id, :nome, :salario)"); // aqui estou criando mais um valor na tabela
+
+
 
 }
+
 //adicionar caixa bd e sistema

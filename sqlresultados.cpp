@@ -26,6 +26,8 @@ void SqlResultados::closeBD(){
 }
 
 QSqlQuery busca(QString comandoSQL){
-        QSqlQuery query(comandoSQL);
-           return query;
+        QSqlQuery query = new QSqlQuery;
+        query.prepare(comandoSQL);
+        query.exec();
+        return query;
 }
