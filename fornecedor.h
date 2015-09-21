@@ -4,6 +4,7 @@
 #include "QDate"
 
 
+
 class fornecedor
 {
 public:
@@ -12,6 +13,9 @@ public:
 
 public:
     fornecedor();
+    criaFornecedor(fornecedor forn);
+    criaFornecedorQuery(QSqlQuery &query, fornecedor forn);
+
 };
 
 #endif // FORNECEDOR_H

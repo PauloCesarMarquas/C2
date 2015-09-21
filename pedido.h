@@ -17,6 +17,7 @@ public:
     Pedido();
     void addProdutoNoPedido();
     double addGorjeta();
+    void cancelaPedido();
 
 };
 
