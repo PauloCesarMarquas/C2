@@ -4,20 +4,28 @@
 #include "QDate"
 #include "pessoa.h"
 
-class funcionario:pessoa
+class  funcionario
 {
     QString cargo;
     double salaraio;
-    QDate admissão;         // diferente do cargo essa data é a data da admissao do funcionario na empresa
+    QDate admissao;         // diferente do cargo essa data é a data da admissao do funcionario na empresa
     QDate demissao;        //diferente do cargo essa data é a data da demissao do funcionario da empresa
     int idCargo;
+    QString nome;
+    long int cpf;
+    QString rg;
+    QDate nascimento;
+
 
 
 public:
     funcionario();
     int mudaOCargo();
-    QDate admissao();
-    QDate demissao();
+    void admissao();
+    void demissao();
+    void criaFuncionarioQuery(QSqlQuery &query, funcionario func);
+    void criaFuncionario(funcionario func);
+
 
 
 };

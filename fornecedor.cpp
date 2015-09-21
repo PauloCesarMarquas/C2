@@ -33,5 +33,5 @@ fornecedor::criaFornecedor(fornecedor forn){
     string resultado;
     SqlResultados sql=new SqlResultados;
     QSqlQuery query=new QSqlQuery;
-    sql.iniBD();
+    criaFornecedorQuery(query, forn);
 }
