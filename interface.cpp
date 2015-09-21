@@ -56,12 +56,13 @@ Interface::Interface(){
     cout << "(3)Relatórios\n";
     cout << "(4)Funcionários\n";
     cout << "(5)Produtos\n";
-    cout << "(6)Fechar\n";
+    cout << "(6)Fornedor\n";
+    cout << "(7)Fechar\n";
     int buffer1,buffer2;
     cin >> buffer1;
     LimpaEntrada();
     LimpaTela();
-    if(buffer1 == 6) return;
+    if(buffer1 == 7) return;
     switch (buffer1){
     case(1):
         cout << "Opcoes: Pedido\n\n";
@@ -208,7 +209,7 @@ Interface::Interface(){
             //PERCORRE OS FUNCIONARIOS DIZENDO O NOME, CARGO E SALÁRIO
             break;
         case(4):
-            //PERCORRE OS
+            //PERCORRE OS PRODUTOS E MOSTRA ELES TUDO
         default:
         }
         break;
@@ -236,6 +237,12 @@ Interface::Interface(){
             double salarioFuncionario;
             cin >> salarioFuncionario;
             LimpaEntrada();
+            cout << "\nCPF\n";
+            long int cpfFuncionario;
+            while(!(cin >> cpfFuncionario)){
+                cin.clear();
+                cin.ignore(256,'\n');
+            }
             LimpaTela();
             cout << "Endereco do funcionario\n\nRua/Avenida\n";
             string ruaFuncionario;
@@ -251,6 +258,14 @@ Interface::Interface(){
                 cin.ignore(numeric_limits<streamsize::max()>,'\n');
                 cout << "\nNumero invalido, insira novamente\n";
                 cin >> numeroFuncionario;
+            }
+            cout << "Data de nascimento (DD/MM/AAAA)";
+            string dataNascimentoFuncionario;
+            getline(cin,dataNascimentoFuncionario);
+            while((dataNascimentoFuncionario.length() != 10)&& (dataNascimentoFuncionario[2] != '/') && (dataNascimentoFuncionario[5] != '/')){
+                cout << "\nData no formato errado. Insira novamente\n";
+                dataNascimentoFuncionario.clear();
+                getline(cin,dataNascimentoFuncionario);
             }
             LimpaEntrada();
             LimpaTela();
@@ -289,7 +304,76 @@ Interface::Interface(){
             LimpaTela();
             break;
         case(4):
+            cout << "Nome do funcionario\n";
+            string nomeFuncionario;
+            getline(cin,nomeFuncionario);
+            //IF FUNCIONARIO EXISTE
+            //MOSTRA OS PARANAUES DELE NA SEGUINTE ORDEM
+            //NOME
+            //CPF
+            //DATA DE NASCIMENTO OU IDADE, TU DESCIDE
+            //ENDERECO
+                //RUA
+                //BAIRRO
+                //NUMERO
+            /*
+            cout << "O que deseja alterar?\n";
+            cout << "(1)Nome\n";
+            cout << "(2)CPF\n";
+            cout << "(3)Data de nascimento\n";
+            cout << "(4)Endereço\n";
+            cout << "(5)Voltar ao menu inicial\n";
+            int buffer3;
+            cin >> buffer3;
+            LimpaEntrada();
+            LimpaTela();
+            switch(buffer3){
+            case(1):
+                string nomeFuncionario;
+                cout << "Insira o novo nome\n;
+                getline(cin,nomeFuncionario);
+                break;
+            case(2):
+                long int cpfFuncionario;
+                cout << "Insira o novo cpf\n";
+                getline(cin,cpfFuncionario);
+                break;
+            case(3):
+                string dataNascimentoFuncionario;
+                cout << "Insira a nova data de nascimento (DD/MM/AAAA)\n";
+                getline(cin,dataNascimentoFuncionario);
+                while((dataNascimentoFuncionario.length() !=10) && (dataNascimentoFuncionario[2]!='/') && (dataNascimentoFuncionario[5])!= '/'){
+                    cout << "\nFormato invalido da data. Insira novamente\n";
+                    getline(cin,dataNascimentoFuncionario);
+                }
+                break;
+            case(4):
+                string ruaFuncionario;
+                cout << "Insira a nova rua/avenida\n";
+                getline(cin,ruaFuncionario);
+                cout << "\nInsira o novo bairro/avenida\n";
+                string bairroFuncionario;
+                getline(cin,bairroFuncionario);
+                cout << "\nInsira o novo numero\n";
+                int numFuncionario;
+                while(!(cin >> numFuncionario)){
+                    LimpaEntrada();
+                }
+                Limpa
+                break;
+            case(5):
+                LimpaTela();
+                break;
+            default:
+                cout << "Entrada invalida\n\n";
+                LimpaTela();
+                break;
         }
+        */
+        //ELSE
+        //cout << "Usuario nao existe\n";
+
+
         break;
     case(5):
         cout << "Opcoes: Produtos\n\n";
