@@ -15,7 +15,6 @@
 
 using namespace std;
 
-
 Cargo::Cargo()
 {
 
@@ -39,14 +38,14 @@ Cargo::admissaoCargo( Cargo carg, funcionario fun){
     sql.iniBD();
     cout << "Selecionar Funcionario" << endl << "insira o id do funcionario ";
     cin >> fun.id >> endl;
-    query = sql.busca("select * from `funcionario` where id ="+cargo.id);
+    query = sql.busca("select * from `funcionario` where id ='"+cargo.id+"'");
 
     resultado.copy(query.value(0).toString());
     cout << "Funcionario selecionado: " << resultado << endl;
 
     cout << "Selecionar Cargo" << endl << "insira o id do cargo ";
     cin >> carg.id >> endl;
-    query = sql.busca("select * from `cargo` where id ="+cargo.id);
+    query = sql.busca("select * from `cargo` where id ='"+cargo.id+"'");
     resultado.copy(query.value(0).toString());
     cout << "cargo selecionado: " << resultado << endl;
     sql.closeBD();
@@ -54,14 +53,14 @@ Cargo::admissaoCargo( Cargo carg, funcionario fun){
 
 }
 
-void criaCargo(Cargo carg){
+void criaCargoQuery(Cargo carg){
     SqlResultados sql = new SqlResultados;
     sql.iniBD();
     QSqlQuery query= new QSqlQuery;
     query.prepare("INSERT INTO `cargo` (nome, Salario)"
                   "VALUES (:name, :salario)"); // aqui estou criando mais um valor na tabela
     query.addBindValue(":name",carg.nome);
-    query.addBindValue(":salario");
+    query.addBindValue(":salario", carg.salario);
     query.exec();
     sql.closeBD();
 }
