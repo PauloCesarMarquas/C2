@@ -69,9 +69,21 @@ Interface::Interface(){
         cout << "(2)Status dos pedidos\n";
         cout << "(3)Modificar pedido\n";
         cout << "(4)Cancelar pedido\n";
+        cout << "(5)Voltar ao menu inicial\n";
         cin >> buffer2;
         LimpaEntrada();
         LimpaTela();
+        switch(buffer2){
+        case(6):
+            break;
+        case(1):
+            cout << "Codigo do pedido"
+        case(2):
+        case(3):
+        case(4):
+        case(5):
+        default:
+        }
         break;
     case(2):
         cout << "Opcoes: Mesa\n\n";
@@ -90,21 +102,85 @@ Interface::Interface(){
             int numMesa;
             cin >> numMesa;
             LimpaEntrada();
+            //IF MESA DESOCUPADA
             cout << "\nQuantas pessoas?\n";
             int qtdPessoas;
             cin >> qtdPessoas;
             LimpaEntrada();
             LimpaTela();
             cout << "Mesa ocupada!!!\n\n";
-            LimpaTela();
+            //Indexar os dados ao objeto mesa
             //Função de alocar mesa aqui com os dados de cima
+            //ELSE COUT << MESA OCUPADA
+            LimpaTela();
             break;
         case(2):
-        case(3):
-        case(4):
-        case(5):
-        case(6):
+            cout << "Qual mesa deseja descoupar?\n";
+            int numMesa;
+            cin >> numMesa;
+            LimpaEntrada();
             LimpaTela();
+            //IF MESA OCUPADA
+            cout << "Conta da mesa: "; //FUNÇÃO QUE DIZ A CONTA DA MESA;
+            cout << "\n\nDeseja fechar a mesa? (S) ou (N)\n";
+            char choice;
+            cin >> choice;
+            LimpaEntrada();
+            if(choice == 'S'){
+                cout << "\n\nMESA FECHADA COM SUCESSO!\n";
+            }
+            else if(choice == 'N'){
+                cout << "\n\nMESA NAO FOI FECHADA!\n"
+            }
+            else{
+                cout << "\n\nOPCAO DESCONHECIDA\n";
+            }
+            //ELSE COUT  "MESA NAO OCUPADA
+            LimpaTela()
+            break;
+        case(3):
+            cout << "Qual mesa deseja verificar os pedidos?\n\n";
+            //IF MESA OCUPADA
+            //AQUI PRECISA PERCORRER NO BD A PARADA E DAR UM COUT DOS PEDIDOS
+            //IF PEDIDOS.EMPTY == TRUE COUT << NAO HA PEDIDOS NA MESA
+            //CONTA QUE TA NA MESA
+            //ELSE COUT << MESA NAO OCUPADA
+            LimpaTela();
+            break;
+        case(4):
+            cout << "A nova mesa tem quantos lugares?\n";
+            int numPessoas;
+            cin >> numPessoas;
+            LimpaEntrada();
+            LimpaTela();
+            //FUNÇÃO QUE CRIA A FUCKING MESA NOVA
+            cout << "Mesa criada com sucesso!\n\n"
+            cout << "Numero: "; //COLOCAR O NUMERO DA MESA
+            cout << "Quantidade de pessoas: " //NUMERO DE PESSOAS QUE CABEM
+            LimpaTela();
+            break;
+        case(5):
+            cout << "Qual mesa deseja deletar?\n";
+            int numMesa;
+            cin >> numMesa;
+            LimpaEntrada();
+            //IF MESA EXISTE
+            cout << "Mesa encontrada. Deseja deleta-la? (S) ou (N)\n";
+            char choice;
+            cin >> choice;
+            LimpaEntrada();
+            if(choice == 'S'){
+                //deleta a fucking mesa
+                cout << "Mesa deletada com sucesso!\n\n";
+            }
+            else if(choice == 'N'){
+                cout << "Mesa nao deletada\n\n";
+            }
+            else{
+                cout << "Opcao desconhecida\n\n";
+            }
+            break;
+        case(6):
             break;
         default:
         }
@@ -114,9 +190,27 @@ Interface::Interface(){
         cout << "(1)Pedidos neste momento\n";
         cout << "(2)Status das mesas abertas\n";
         cout << "(3)Relacao de funcionarios\n";
+        cout << "(4)Código dos produtos\n";
+        cout << "(5)Voltar ao menu inicial\n";
         cin >> buffer2;
         LimpaEntrada();
         LimpaTela();
+        switch(buffer2){
+        case(5):
+            break;
+        case(1):
+            //PERCORRE OS PEDIDOS DA MESA E FALA QUENHÉ O QUE E QUANTO VALE CADA COISA. COLOCA TAMBÉM NUMERO DE PESSOAS
+            break;
+        case(2):
+            //PERCORRE OS PARANAUES DAS MESAS ABERTAS. DIGA O VALOR QUE DA CONTA EMBAIXO DELA
+            break;
+        case(3):
+            //PERCORRE OS FUNCIONARIOS DIZENDO O NOME, CARGO E SALÁRIO
+            break;
+        case(4):
+            //PERCORRE OS
+        default:
+        }
         break;
     case(4):
         cout << "Opcoes: Funcionarios\n\n";
@@ -124,9 +218,78 @@ Interface::Interface(){
         cout << "(2)Deletar funcionario\n";
         cout << "(3)Mostrar funcionario\n";
         cout << "(4)Alterar funcionario\n";
+        cout << "(5)Voltar ao menu inicial\n";
         cin >> buffer2;
         LimpaEntrada();
         LimpaTela();
+        switch(buffer2){
+        case(5):
+            break;
+        case(1):
+            cout << "Nome do novo funcionario\n";
+            string nomeFuncionario;
+            getline(cin,nomeFuncionario);
+            cout << "\nCargo\n";
+            string cargoFuncionario;
+            getline(cin,cargoFuncionario);
+            cout << "\nSalario\n";
+            double salarioFuncionario;
+            cin >> salarioFuncionario;
+            LimpaEntrada();
+            LimpaTela();
+            cout << "Endereco do funcionario\n\nRua/Avenida\n";
+            string ruaFuncionario;
+            getline(cin,ruaFuncionario);
+            cout << "\nBairro\n";
+            string bairroFuncionario;
+            getline(cin,bairroFuncionario);
+            cout << "\nNumero\n";
+            int numeroFuncionario;
+            cin >> numero;
+            while(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize::max()>,'\n');
+                cout << "\nNumero invalido, insira novamente\n";
+                cin >> numeroFuncionario;
+            }
+            LimpaEntrada();
+            LimpaTela();
+            //CRIA O FUNCIONARO E ALOCA ELE LÁ NO BD
+            break;
+        case(2):
+            cout << "Nome do funcionario\n";
+            string nomeFuncionario;
+            getline(cin,nomeFuncionario);
+            //IF FUNCIONARIO EXISTE
+            //APRESENTA INFO DELE
+            cout << "Deseja deletar este funcionário? (S) ou (N)";
+            char choice;
+            cin >> choice;
+            LimpaEntrada();
+            if(choice == 'S'){
+                //BLOQUEIA FUNCIONARIO DO BD
+                cout << "Funcionario deletado\n\n";
+            }
+            else if(choice == 'N'){
+                cout << "Funcionario nao deletado\n\n";
+            }
+            else{
+                cout << "Comando desconhecido\n\n";
+            }
+            LimpaTela();
+            break;
+        case(3):
+            cout << "Nome do funcionario\n";
+            string nomeFuncionario;
+            getline(cin,nomeFuncionario);
+            //IF FUNCIONARIO TA NO BD
+            //MOSTRA OS PARANAUES DELE
+            //else
+            //cout << "\n\nFuncionario nao encontrado!\n;
+            LimpaTela();
+            break;
+        case(4):
+        }
         break;
     case(5):
         cout << "Opcoes: Produtos\n\n";
