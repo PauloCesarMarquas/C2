@@ -4,7 +4,7 @@
 #include "QDate"
 #include "pessoa.h"
 
-class funcionario:pessoa
+class  funcionario
 {
     QString cargo;
     double salaraio;
