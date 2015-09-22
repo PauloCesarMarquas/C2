@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     pedido.cpp \
     sqlresultados.cpp \
     mathheus.cpp \
-    produtoquilo.cpp
+    produtoquilo.cpp \
+    interface.cpp
 
 HEADERS  += mainwindow.h \
     pessoa.h \
@@ -36,6 +37,7 @@ HEADERS  += mainwindow.h \
     pedido.h \
     sqlresultados.h \
     mathheus.h \
-    produtoquilo.h
+    produtoquilo.h \
+    interface.h
 
 FORMS    += mainwindow.ui

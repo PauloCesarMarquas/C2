@@ -1,7 +1,10 @@
 #include "mesa.h"
 
-Mesa::Mesa()
-{
+Mesa::Mesa(){
+
+}
+
+void alteraEstado(){
 
 }
 
